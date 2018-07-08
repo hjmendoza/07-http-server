@@ -43,11 +43,11 @@ const requestHandler = (req, res) => {
         res.setHeader('Content-Type', 'text/html');
         res.statusCode = 200;
         res.statusMessage = 'OK';
-
+        let sendResponse = cowsay.say(null);
+        sendResponse;
         let queryStr = req.url.query;
-        let sendResponse;
 
-        if ((!queryStr.text)) {
+        if (!queryStr.text) {
           sendResponse = cowsay.say({
             text: 'I need something good to say!',
           });
@@ -97,7 +97,7 @@ const requestHandler = (req, res) => {
         res.end();
       }
     })
-    .catch(err => {
+    .catch(res => {
       res.writeHead(400);
       res.write(JSON.stringify({
         error: 'invalid request: body required',
