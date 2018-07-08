@@ -48,7 +48,7 @@ describe('Simple Web Server', () => {
     return superagent.post('http://localhost:3000/api/cowsay')
       .send(obj)
       .catch(response=> {
-        expect(response.status).toEqual(400);
+        expect(response.status).toEqual(401);
       });
   });
   it('handles a bad post request with empty body', () => {
@@ -56,7 +56,7 @@ describe('Simple Web Server', () => {
     return superagent.post('http://localhost:3000/api/cowsay')
       .send(obj)
       .catch(response=> {
-        expect(response.status).toEqual(400);
+        expect(response.status).toEqual(401);
       });
   });
   it('handles 404 error for invalid routes', () => {
